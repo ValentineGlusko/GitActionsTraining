@@ -1,13 +1,18 @@
 name: First Workflow
 on:
-    - push 
-jobs: 
+    workflow_dispatch:
+        inputs:
+            tags:
+                type: string
+                required: True
+
+jobs:
     run-first-command:
         runs-on: ubuntu-latest
         steps:
-         - name: display text
-           run: echo "some text"
-         - name: Command multiline
-           run: |
-             node -v
-             npm -v
+            - name: display text
+              run: echo "some text"
+            - name: Command multiline
+              run: |
+                  node -v
+                  npm -v
