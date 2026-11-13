@@ -9,7 +9,7 @@ jobs:
               run: echo 'some text'
             - name: post all files
               run: |
-                  folder = ls -liah
+                  ls -liah
                   echo "$folder"
     parallel-commands:
         runs-on: ubuntu-lates
