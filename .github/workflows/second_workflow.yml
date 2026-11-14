@@ -2,17 +2,23 @@ name: second Workflow
 on: [push]
 
 jobs:
-    run-frst-command:
-        runs-on: ubuntu-latest
-        steps:
-            - name: display some text
-              run: echo 'some text'
-            - name: post all files
-              run: |
-                  ls -liah
-                  echo "$folder"
-    parallel-commands:
-        runs-on: ubuntu-lates
-        steps:
-            - name: check server du
-              run: du -h
+  run-frst-command:
+    runs-on: ubuntu-latest
+    steps:
+      - name: display some text
+        run: echo 'some text'
+      - name: post all files
+        run: |
+          ls -liah
+          echo "$folder"
+  parallel-commands:
+    runs-on: windows-latest
+    steps:
+      - name: check server du
+        run: node -v
+  run-second:
+    runs-on: macos-latest
+    needs: [run-frst-command]
+    steps:
+      - name: Display Node version on macos
+        run: node -v
