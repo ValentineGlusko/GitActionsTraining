@@ -1,0 +1,14 @@
+name: forth_workflow
+on:
+    workflow_run:
+        workflows: [second Workflow]
+        types:
+            - completed
+jobs:
+    run-after-third-workflow-is-done:
+        runs-on: ubuntu-lates
+        steps:
+            - name: List files
+              run: |
+                  echo $(ls -lia)
+                  echo 'this is forth workflow'
