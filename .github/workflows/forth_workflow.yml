@@ -5,10 +5,17 @@ on:
         types:
             - completed
 jobs:
-    run-after-third-workflow-is-done:
-        runs-on: ubuntu-lates
+    success-command:
+        runs-on: ubuntu-latest
+        if: ${{ github.event.workflow_run.conclusion == 'success'  }}
         steps:
             - name: List files
               run: |
                   echo $(ls -lia)
-                  echo 'this is forth workflow'
+                  echo 'this is success '
+    not_success_run:
+        runs-on: ubuntu-lates
+        if: ${{ github.event.workflow_run.conclusion == 'failure'}}
+        steps:
+            - name: "Tell not completed"
+              run: echo 'this is failure'
