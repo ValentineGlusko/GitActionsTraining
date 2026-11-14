@@ -14,9 +14,11 @@ jobs:
 
             - name: Copy files
               run: |
+                
+                  git remote add origin "https://$GITHUB_ACTOR:${{secrets.GITHUB_TOKEN}}@github.com/$GITHUB_REPOSITORY.git"  
+                  git clone origin main 
 
-                  git remote add origin "https://$GITHUB_ACTOR:${{secrets.GITHUB_TOKEN}}@github.com/$GITHUB_REPOSITORY.git" .
-                  
+
 
               #git clone
             - name: check files
