@@ -7,5 +7,8 @@ jobs:
         steps:
             - name: check working dir
               run: |
-                  pwd
                   ls -lia
+            - uses: actions/checkout@v4
+
+            - name: list files another
+              run: ls -lia
