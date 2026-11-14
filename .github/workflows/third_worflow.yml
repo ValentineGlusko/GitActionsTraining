@@ -1,0 +1,11 @@
+name: third workflow
+on: ["push"]
+
+jobs:
+    job_name_command:
+        runs-on: ubuntu-latest
+        steps:
+            - name: check working dir
+              run: |
+                  pwd
+                  ls -lia
