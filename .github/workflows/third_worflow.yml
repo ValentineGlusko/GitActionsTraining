@@ -5,10 +5,19 @@ jobs:
     job_name_command:
         runs-on: ubuntu-latest
         steps:
-            - name: check working dir
-              run: |
-                  ls -lia
-            - uses: actions/checkout@v4
+            - name: List files before copy
+              run: ls -lia
+            #- uses: actions/checkout@v4
 
             - name: list files another
+              run: ls -lia
+
+            - name: Copy files
+              run: |
+                  git init
+                  git remote add origin "https://$GITHUB_ACTOR:${{secrets.GITHUB_TOKEN}}@github.com/$GITHUB_REPOSITORY.git"
+                  git fetch origin
+                  git checkout main
+              #git clone
+            - name: check files
               run: ls -lia
