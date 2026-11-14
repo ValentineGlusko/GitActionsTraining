@@ -1,0 +1,8 @@
+name: test_events
+on: [push, issues, pull_request]
+jobs:
+    some_job_one:
+        runs-on: ubuntu-latest
+        steps:
+            - name: first_step
+              run: echo -e github sha':' $GITHUB_SHA and \n github ref ':' $GITHUB_REF   
