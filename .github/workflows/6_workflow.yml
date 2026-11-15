@@ -1,8 +1,13 @@
 name: test_events
-on: [push, issues, pull_request]
+on:
+    issues:
+        types: [edited, deleted]
+    pull_request:
+        types: [assignet, closed]
+
 jobs:
     some_job_one:
         runs-on: ubuntu-latest
         steps:
             - name: first_step
-              run: echo -e github sha':' $GITHUB_SHA and \n github ref ':' $GITHUB_REF   
+              run: echo -e github sha':' $GITHUB_SHA and \n github ref ':' $GITHUB_REF
