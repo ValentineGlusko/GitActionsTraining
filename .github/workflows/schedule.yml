@@ -1,7 +1,7 @@
 name: schedule_workflow
 on:
     schedule:
-        - cron: "39 11  * * *"
+        - cron: "01 *  * * 0"
 jobs:
     test-cron:
         runs-on: ubuntu-latest
