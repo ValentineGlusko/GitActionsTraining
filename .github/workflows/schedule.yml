@@ -1,0 +1,10 @@
+name: schedule_workflow
+on:
+    schedule:
+        - cron: "39 11  * * *"
+jobs:
+    test-cron:
+        runs-on: ubuntu-latest
+        steps:
+            - name: echo about cron
+              run: "echo this is cron"
