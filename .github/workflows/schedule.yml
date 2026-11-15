@@ -9,4 +9,4 @@ jobs:
             - name: echo about cron
               run: |
                   "echo this is cron "
-                  "echo ${{ github.event.client_payload.someTest }}"
+                  "echo ${{  github.event.client_payload.someTest }}"
