@@ -18,6 +18,6 @@ jobs:
 
             - name: Code static to code 3
               run: |
-               aws s3 sync ./ s3://some-buket-name/
+               aws s3 sync ./ s3://some-buket-name/ \
                --exclude "*" \
                --include "index.html"
