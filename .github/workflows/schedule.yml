@@ -4,13 +4,12 @@ jobs:
     deploy:
         runs-on: ubuntu-latest
         steps:
-          - name: Checkout code
-            uses: action/checkout@v6
-          - name: Conf aws credntials
-            uses: aws-actions/configure-aws-credentials@v6.3.0
-            with:
-                ##aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-                ##aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-                role-to-assume: arn:aws:iam::658668657413:role/TestRole
-                aws-region: eu-north-1
-
+            - name: Checkout code
+              uses: actions/checkout@v6
+            - name: Conf aws credntials
+              uses: aws-actions/configure-aws-credentials@v6.3.0
+              with:
+                  ##aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                  ##aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                  role-to-assume: arn:aws:iam::658668657413:role/TestRole
+                  aws-region: eu-north-1
