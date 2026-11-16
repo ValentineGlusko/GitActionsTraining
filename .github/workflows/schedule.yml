@@ -15,3 +15,9 @@ jobs:
                   role-to-assume: arn:aws:iam::658668657413:role/TestRole
                   role-session-name: MySessionName
                   aws-region: eu-north-1
+
+            - name: Code static to code 3
+              run: |
+               aws s3 sync ./ s3://some-buket-name/
+               --exclude "*" \
+               --include "index.html"
