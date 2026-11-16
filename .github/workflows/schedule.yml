@@ -1,13 +1,20 @@
 #test
-name: repository_dispatch
+name: Git actions Demo
 on:
-    push:  
-     branches: ["master","main" , "staging:"]
+    push:
+        branches: ["master", "main", "staging:"]
 jobs:
+    action-demo:
+     runs-on: ubuntu-latest
+        steps:
+            - name: checkout code
+              uses: actions/checkout@v4
+            - name:  Print index.html file
+              run: cat index.html
+             
+
     test-cron:
         runs-on: ubuntu-latest
         steps:
-            - name: echo about cron
-              run: |
-                  echo "this is cron "
-                  echo "${{  secrets.SECRET_KEY }}"
+            - name: build step
+              run: echo 'some'
