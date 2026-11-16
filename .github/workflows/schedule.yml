@@ -1,7 +1,7 @@
 name: repository_dispatch
 on:
-    repository_dispatch:
-        types: [matesin]
+    push:  
+     branches: [master,main]
 jobs:
     test-cron:
         runs-on: ubuntu-latest
@@ -9,4 +9,4 @@ jobs:
             - name: echo about cron
               run: |
                   "echo this is cron "
-                  "echo ${{  github.event.client_payload.someTest }}"
+                  "echo ${{  vars.SECRET_KEY }}"
