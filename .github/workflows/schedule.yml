@@ -1,18 +1,15 @@
-#test
-name: Git actions Demo
-on:
-    push:
-        branches: ["master", "main", "staging:"]
+name: deploy HTML S3-buket-test
+on: push
 jobs:
-    action-demo:
+    deploy:
         runs-on: ubuntu-latest
         steps:
-            - name: checkout code
-              uses: actions/checkout@v4
-            - name: Print index.html file
-              run: cat index.html
-    test-cron:
-        runs-on: ubuntu-latest
-        steps:
-            - name: build step
-              run: echo 'some'
+          - name: Checkout code
+            uses: action/checkout@v4
+          - name: Conf aws credntials
+            uses: aws-actions/configure-aws-credentials@v4
+            with:
+                aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                aws-region: eu-north-1
+
