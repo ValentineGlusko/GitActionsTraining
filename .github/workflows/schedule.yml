@@ -7,11 +7,19 @@ on:
            description: Get me environment variable
            required: true
            default: dev
+           type: choice
+           options:
+            - dev
+            - test
+            - prod    
+          tag:
+            description: choose tag
+            required: true
 jobs:
     inputs-demo:
         runs-on: ubuntu-latest
         steps:
             - name: deploy app
-              run: echo 'test deploying application to the ${{ inputs.environment }}' 
+              run: echo 'test deploying ${{ inputs.tag  }} application to the ${{ inputs.environment }}' 
     
  
