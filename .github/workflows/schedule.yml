@@ -20,13 +20,17 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: deploy app
+              id: step1
               run: | 
                 echo 'test deploying ${{ inputs.tag  }} application to the ${{ inputs.environment }}' 
                 echo  'Name event ${{ github.event_name }}' 
                 echo   ' ${{  github.repository  }} '
                 echo '${{ github.ref }}'
-                echo '${{ github.actor }}'
+                echo  test="${{ github.actor }}" >> $GITHUB_OUTPUT
                 echo '${{ github.sha }}'
                 echo '${{ github.workflow }}'
+            - name: next step
+              run:  | 
+                    echo ' HRE IS : ${{ steps.step1.outputs.test }}'
     
  
