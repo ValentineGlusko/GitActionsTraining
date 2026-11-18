@@ -1,23 +1,17 @@
 ## 
-name: deploy HTML S3-buket-test
-on: push
+name: input demo
+on:
+    workflow_dispatch:
+        inputs:
+          environment:
+           description: Get me environment variable
+           required: true
+           default: dev
 jobs:
-    deploy:
+    inputs-demo:
         runs-on: ubuntu-latest
         steps:
-            - name: Checkout code
-              uses: actions/checkout@v6
-            - name: Conf aws credntials
-              uses: aws-actions/configure-aws-credentials@v6.3.0
-              with:
-                  aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-                  aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-                  role-to-assume: arn:aws:iam::658668657413:role/TestRole
-                  role-session-name: MySessionName
-                  aws-region: eu-north-1
-
-            - name: Code static to code 3
-              run: |
-               aws s3 sync ./ s3://some-buket-name/ \
-               --exclude "*" \
-               --include "index.html"
+            - name: deploy app
+              run: echo 'test deploying application to the ${{ inputs.environment }}' 
+    
+ 
