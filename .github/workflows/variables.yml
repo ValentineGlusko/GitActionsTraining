@@ -1,0 +1,10 @@
+name: variables check
+on: workflow_dispatch
+env:
+  TEST_VARIABLE: "test"
+jobs:
+  first_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: This is test
+        run: "echo $TEST_VARIABLE"
