@@ -6,6 +6,6 @@ jobs:
     steps:
       - name: first
         run: |
-         echo "this is test" >> $GITHUB_OUTPUT
+         echo "test=this is test" >> $GITHUB_OUTPUT
       - name: second acces to variable
         run: echo "$GITHUB_OUTPUT"
