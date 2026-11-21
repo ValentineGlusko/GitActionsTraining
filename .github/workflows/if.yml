@@ -6,13 +6,13 @@ on:
       - development
 jobs:
   demo:
-    runs-on: ubuntuubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Run this step
-        if: github.ref_name  == 'refs/heads/main' 
+        if: github.ref  == 'refs/heads/main' 
         run: echo "some package"
       - name: second step
-        if: github.ref_name != 'refs/heads/main'
+        if: github.ref != 'refs/heads/main'
         run: 
          echo 'secosnd its not a main ' 
         
