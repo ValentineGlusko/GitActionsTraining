@@ -14,5 +14,5 @@ jobs:
       - name: second step
         if: github.ref_name != 'refs/heads/main'
         run: 
-         echo 'second its not a main ' 
+         echo 'secosnd its not a main ' 
         
