@@ -2,6 +2,8 @@ name: output
 on: workflow_dispatch
 jobs:
   first_job_export:
+    outputs:
+      random_varible: ${{ steps.st1.outputs.test }}
     runs-on: ubuntu-latest 
     steps:
       - name: first
@@ -10,3 +12,11 @@ jobs:
          echo "test=this is test" >> $GITHUB_OUTPUT
       - name: second acces to variable
         run: echo ${{ steps.st1.outputs.test }}
+        
+  second_job_export:
+    needs: first_job_export
+    runs-on: ubuntu-latest
+    steps:
+      - name: add to var
+        run: |
+         echo ${{ needs.first_job_export.outputs.random_varible }}
