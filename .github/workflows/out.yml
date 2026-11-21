@@ -5,7 +5,8 @@ jobs:
     runs-on: ubuntu-latest 
     steps:
       - name: first
+        id: st1
         run: |
          echo "test=this is test" >> $GITHUB_OUTPUT
       - name: second acces to variable
-        run: echo "$GITHUB_OUTPUT"
+        run: echo ${{ steps.st1.outputs.test }}
